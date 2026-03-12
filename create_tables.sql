@@ -1,0 +1,79 @@
+1️⃣Create EMPLOYEE Table
+CREATE TABLE EMPLOYEE (
+    Fname VARCHAR(20),
+    Minit CHAR(1),
+    Lname VARCHAR(20),
+    Ssn CHAR(9) PRIMARY KEY,
+    Bdate DATE,
+    Address VARCHAR(100),
+    Sex CHAR(1),
+    Salary DECIMAL(10,2),
+    Super_ssn CHAR(9),
+    Dno INT
+);
+
+2️⃣ Create DEPARTMENT Table
+CREATE TABLE DEPARTMENT (
+    Dname VARCHAR(50),
+    Dnumber INT PRIMARY KEY,
+    Mgr_ssn CHAR(9),
+    Mgr_start_date DATE
+);
+
+3️⃣ Create DEPT_LOCATIONS Table
+CREATE TABLE DEPT_LOCATIONS (
+    Dnumber INT,
+    Dlocation VARCHAR(50),
+    PRIMARY KEY (Dnumber, Dlocation)
+);
+
+4️⃣ Create PROJECT Table
+CREATE TABLE PROJECT (
+    Pname VARCHAR(50),
+    Pnumber INT PRIMARY KEY,
+    Plocation VARCHAR(50),
+    Dnum INT
+);
+
+5️⃣ Create WORKS_ON Table
+CREATE TABLE WORKS_ON (
+    Essn CHAR(9),
+    Pno INT,
+    Hours DECIMAL(5,1),
+    PRIMARY KEY (Essn, Pno)
+);
+
+6️⃣ Create DEPENDENT Table
+CREATE TABLE DEPENDENT (
+    Essn CHAR(9),
+    Dependent_name VARCHAR(50),
+    Sex CHAR(1),
+    Bdate DATE,
+    Relationship VARCHAR(25),
+    PRIMARY KEY (Essn, Dependent_name)
+);
+
+7️⃣ Add Foreign Keys (Relationships)
+ALTER TABLE EMPLOYEE
+ADD FOREIGN KEY (Dno) REFERENCES DEPARTMENT(Dnumber);
+
+ALTER TABLE EMPLOYEE
+ADD FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn);
+
+ALTER TABLE DEPARTMENT
+ADD FOREIGN KEY (Mgr_ssn) REFERENCES EMPLOYEE(Ssn);
+
+ALTER TABLE DEPT_LOCATIONS
+ADD FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT(Dnumber);
+
+ALTER TABLE PROJECT
+ADD FOREIGN KEY (Dnum) REFERENCES DEPARTMENT(Dnumber);
+
+ALTER TABLE WORKS_ON
+ADD FOREIGN KEY (Essn) REFERENCES EMPLOYEE(Ssn);
+
+ALTER TABLE WORKS_ON
+ADD FOREIGN KEY (Pno) REFERENCES PROJECT(Pnumber);
+
+ALTER TABLE DEPENDENT
+ADD FOREIGN KEY (Essn) REFERENCES EMPLOYEE(Ssn);
