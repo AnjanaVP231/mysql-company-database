@@ -1,4 +1,5 @@
-1️⃣Create EMPLOYEE Table
+
+Create EMPLOYEE Table
 CREATE TABLE EMPLOYEE (
     Fname VARCHAR(20),
     Minit CHAR(1),
@@ -12,7 +13,7 @@ CREATE TABLE EMPLOYEE (
     Dno INT
 );
 
-2️⃣ Create DEPARTMENT Table
+Create DEPARTMENT Table
 CREATE TABLE DEPARTMENT (
     Dname VARCHAR(50),
     Dnumber INT PRIMARY KEY,
@@ -20,14 +21,14 @@ CREATE TABLE DEPARTMENT (
     Mgr_start_date DATE
 );
 
-3️⃣ Create DEPT_LOCATIONS Table
+Create DEPT_LOCATIONS Table
 CREATE TABLE DEPT_LOCATIONS (
     Dnumber INT,
     Dlocation VARCHAR(50),
     PRIMARY KEY (Dnumber, Dlocation)
 );
 
-4️⃣ Create PROJECT Table
+Create PROJECT Table
 CREATE TABLE PROJECT (
     Pname VARCHAR(50),
     Pnumber INT PRIMARY KEY,
@@ -35,7 +36,7 @@ CREATE TABLE PROJECT (
     Dnum INT
 );
 
-5️⃣ Create WORKS_ON Table
+Create WORKS_ON Table
 CREATE TABLE WORKS_ON (
     Essn CHAR(9),
     Pno INT,
@@ -43,7 +44,7 @@ CREATE TABLE WORKS_ON (
     PRIMARY KEY (Essn, Pno)
 );
 
-6️⃣ Create DEPENDENT Table
+Create DEPENDENT Table
 CREATE TABLE DEPENDENT (
     Essn CHAR(9),
     Dependent_name VARCHAR(50),
@@ -53,7 +54,7 @@ CREATE TABLE DEPENDENT (
     PRIMARY KEY (Essn, Dependent_name)
 );
 
-7️⃣ Add Foreign Keys (Relationships)
+ Add Foreign Keys (Relationships)
 ALTER TABLE EMPLOYEE
 ADD FOREIGN KEY (Dno) REFERENCES DEPARTMENT(Dnumber);
 
