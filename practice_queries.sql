@@ -1,4 +1,4 @@
-mysql> SELECT Fname, Lname FROM EMPLOYEE WHERE Dno = 5;
+SELECT Fname, Lname FROM EMPLOYEE WHERE Dno = 5;
 +----------+---------+
 | Fname    | Lname   |
 +----------+---------+
@@ -9,7 +9,7 @@ mysql> SELECT Fname, Lname FROM EMPLOYEE WHERE Dno = 5;
 +----------+---------+
 4 rows in set (0.01 sec)
 
-mysql> SELECT Fname, Lname, Salary FROM EMPLOYEE ORDER BY Salary DESC;
+SELECT Fname, Lname, Salary FROM EMPLOYEE ORDER BY Salary DESC;
 +----------+---------+----------+
 | Fname    | Lname   | Salary   |
 +----------+---------+----------+
@@ -24,7 +24,7 @@ mysql> SELECT Fname, Lname, Salary FROM EMPLOYEE ORDER BY Salary DESC;
 +----------+---------+----------+
 8 rows in set (0.00 sec)
 
-mysql> SELECT AVG(Salary) FROM EMPLOYEE;
+SELECT AVG(Salary) FROM EMPLOYEE;
 +--------------+
 | AVG(Salary)  |
 +--------------+
@@ -32,7 +32,7 @@ mysql> SELECT AVG(Salary) FROM EMPLOYEE;
 +--------------+
 1 row in set (0.01 sec)
 
-mysql> SELECT COUNT(*) FROM EMPLOYEE;
+SELECT COUNT(*) FROM EMPLOYEE;
 +----------+
 | COUNT(*) |
 +----------+
@@ -40,7 +40,7 @@ mysql> SELECT COUNT(*) FROM EMPLOYEE;
 +----------+
 1 row in set (0.00 sec)
 
-mysql> SELECT MAX(Salary) FROM EMPLOYEE;
+SELECT MAX(Salary) FROM EMPLOYEE;
 +-------------+
 | MAX(Salary) |
 +-------------+
@@ -48,7 +48,7 @@ mysql> SELECT MAX(Salary) FROM EMPLOYEE;
 +-------------+
 1 row in set (0.00 sec)
 
-mysql> SELECT MIN(Salary) FROM EMPLOYEE;
+SELECT MIN(Salary) FROM EMPLOYEE;
 +-------------+
 | MIN(Salary) |
 +-------------+
@@ -56,7 +56,7 @@ mysql> SELECT MIN(Salary) FROM EMPLOYEE;
 +-------------+
 1 row in set (0.00 sec)
 
-mysql> SELECT Fname, Lname, Dname FROM EMPLOYEE JOIN DEPARTMENT ON EMPLOYEE.Dno = DEPARTMENT.Dnumber;
+SELECT Fname, Lname, Dname FROM EMPLOYEE JOIN DEPARTMENT ON EMPLOYEE.Dno = DEPARTMENT.Dnumber;
 +----------+---------+----------------+
 | Fname    | Lname   | Dname          |
 +----------+---------+----------------+
@@ -71,7 +71,7 @@ mysql> SELECT Fname, Lname, Dname FROM EMPLOYEE JOIN DEPARTMENT ON EMPLOYEE.Dno 
 +----------+---------+----------------+
 8 rows in set (0.00 sec)
 
-mysql> SELECT Pname, Dnum FROM PROJECT;
+SELECT Pname, Dnum FROM PROJECT;
 +-----------------+------+
 | Pname           | Dnum |
 +-----------------+------+
@@ -84,7 +84,7 @@ mysql> SELECT Pname, Dnum FROM PROJECT;
 +-----------------+------+
 6 rows in set (0.00 sec)
 
-mysql> SELECT E.Fname AS Employee, S.Fname AS Supervisor FROM EMPLOYEE E LEFT JOIN EMPLOYEE S ON E.Super_ssn = S.Ssn;
+SELECT E.Fname AS Employee, S.Fname AS Supervisor FROM EMPLOYEE E LEFT JOIN EMPLOYEE S ON E.Super_ssn = S.Ssn;
 +----------+------------+
 | Employee | Supervisor |
 +----------+------------+
